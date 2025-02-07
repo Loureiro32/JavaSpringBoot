@@ -3,6 +3,8 @@ package com.Mindera.FirstJavaApi.controller;
 
 import com.Mindera.FirstJavaApi.entity.Account;
 import com.Mindera.FirstJavaApi.repository.AccountRepository;
+import com.Mindera.FirstJavaApi.service.AccountService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,21 +12,23 @@ import java.util.List;
 @RestController
 @RequestMapping("Account")
 public class AccountController {
-    private final AccountRepository repository;
+    @Autowired
+    private final AccountService accountService;
 
 
-    public AccountController(AccountRepository repository) {
-        this.repository = repository;
+    public AccountController(AccountRepository repository, AccountService accountService) {
+        this.accountService = accountService;
     }
 
     @PostMapping
-    public void createAccount(@RequestBody Account account){
-        repository.save(account);
+    public long createAccount(@RequestBody Account account){
+        this.accountService.saveOrCreateAccount(account);
+        return account.getId();
     }
 
     @GetMapping
     public List<Account> getAllAccount(){
-        return repository.findAll();
+        return this.accountService.getAccounts();
     }
 
 
