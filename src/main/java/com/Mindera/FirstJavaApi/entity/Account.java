@@ -1,13 +1,8 @@
 package com.Mindera.FirstJavaApi.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@Builder
+
 @Entity(name = "Account")
 public class Account {
 
@@ -17,7 +12,7 @@ public class Account {
     private Integer id;
 
     @Column(name = "firstName")
-    private String fistName;
+    private String firstName;
 
     @Column(name = "lastName")
     private String lastName;
@@ -27,4 +22,47 @@ public class Account {
 
     @Column
     private int age;
+
+    public Account() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Boolean getAccountStatus() {
+        return accountStatus;
+    }
+
+    public void setAccountStatus(Boolean accountStatus) {
+        this.accountStatus = accountStatus;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 }

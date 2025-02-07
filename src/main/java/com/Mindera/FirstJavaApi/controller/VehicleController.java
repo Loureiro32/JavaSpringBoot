@@ -1,29 +1,28 @@
 package com.Mindera.FirstJavaApi.controller;
 
 import com.Mindera.FirstJavaApi.entity.Vehicle;
-import com.Mindera.FirstJavaApi.repository.VehcileRepository;
+import com.Mindera.FirstJavaApi.service.VehicleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("Vehicle")
+@RequestMapping("/api/v1/vehicle")
 public class VehicleController {
-    private final VehcileRepository repository;
+
+    @Autowired
+    VehicleService vehicleService;
 
 
-    public VehicleController(VehcileRepository repository){
-        this.repository = repository;
+    @GetMapping
+    public List<Vehicle> getAllVehicles() {
+        return this.vehicleService.getVehicles();
     }
 
     @PostMapping
-    public void createVehicle(@RequestBody Vehicle vehicle){
-        repository.save(vehicle);
-    }
-
-    @GetMapping
-    public List<Vehicle> getAllVehicles(){
-        return repository.findAll();
+    public void createVehicle(@RequestBody Vehicle vehicle) {
+        this.vehicleService.saveOrCreateVehicles(vehicle);
     }
 
 
