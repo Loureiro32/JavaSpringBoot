@@ -19,10 +19,18 @@ public class AccountController {
         return this.accountService.getAccounts();
     }
 
+    @GetMapping(path = "{values}")
+    public List<Account> getDesableAccount() {
+        return this.accountService.getDeactivatedAccounts();
+    }
+
     @PostMapping
     public void createAccount(@RequestBody Account account) {
         this.accountService.saveOrCreateAccount(account);
     }
 
-
+    @DeleteMapping(path = "{AccountID}")
+    public void deleteAccount(@PathVariable("AccountID") Integer id) {
+        this.accountService.deleteAccount(id);
+    }
 }

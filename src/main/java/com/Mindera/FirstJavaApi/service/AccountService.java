@@ -23,9 +23,20 @@ public class AccountService {
         return accounts;
     }
 
-    public void saveOrCreateAccount(Account account) {
-        accountRepository.save(account);
+    public List<Account> getDeactivatedAccounts() {
+        List<Account> disableAccounts = new ArrayList<>();
+        this.accountRepository.findByAccountStatusFalse().forEach(disableAccounts::add);
+        return disableAccounts;
     }
 
+    public void saveOrCreateAccount(Account account) {
+        if (this.accountRepository.existsByName(account.getName())) {
+            throw new IllegalStateException("Account Already exist");
+        }
+        this.accountRepository.save(account);
+    }
 
+    public void deleteAccount(Integer id) {
+        this.accountRepository.deleteById(id);
+    }
 }
