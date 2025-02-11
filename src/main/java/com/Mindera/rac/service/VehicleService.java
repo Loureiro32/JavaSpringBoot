@@ -21,7 +21,7 @@ public class VehicleService {
     }
 
     public void saveOrCreateVehicles(Vehicle vehicle) {
-        if (this.vehcileRepository.existsByName(vehicle.getPlate())) {
+        if (this.vehcileRepository.existsByPlate(vehicle.getPlate())) {
             throw new IllegalStateException("Vehicle Already registered");
         }
         this.vehcileRepository.save(vehicle);
