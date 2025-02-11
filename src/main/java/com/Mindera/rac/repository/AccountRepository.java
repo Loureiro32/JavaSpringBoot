@@ -1,6 +1,6 @@
-package com.Mindera.FirstJavaApi.repository;
+package com.Mindera.rac.repository;
 
-import com.Mindera.FirstJavaApi.entity.Account;
+import com.Mindera.rac.entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

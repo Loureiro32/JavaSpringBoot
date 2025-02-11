@@ -1,7 +1,7 @@
-package com.Mindera.FirstJavaApi.service;
+package com.Mindera.rac.service;
 
-import com.Mindera.FirstJavaApi.entity.Vehicle;
-import com.Mindera.FirstJavaApi.repository.VehcileRepository;
+import com.Mindera.rac.entity.Vehicle;
+import com.Mindera.rac.repository.VehcileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +21,10 @@ public class VehicleService {
     }
 
     public void saveOrCreateVehicles(Vehicle vehicle) {
-        vehcileRepository.save(vehicle);
+        if (this.vehcileRepository.existsByName(vehicle.getPlate())) {
+            throw new IllegalStateException("Vehicle Already registered");
+        }
+        this.vehcileRepository.save(vehicle);
     }
 
 

@@ -1,8 +1,8 @@
-package com.Mindera.FirstJavaApi.service;
+package com.Mindera.rac.service;
 
 
-import com.Mindera.FirstJavaApi.entity.Account;
-import com.Mindera.FirstJavaApi.repository.AccountRepository;
+import com.Mindera.rac.entity.Account;
+import com.Mindera.rac.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

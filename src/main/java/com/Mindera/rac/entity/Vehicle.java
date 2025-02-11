@@ -1,4 +1,4 @@
-package com.Mindera.FirstJavaApi.entity;
+package com.Mindera.rac.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -8,20 +8,23 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity(name = "Account")
-public class Account {
+@Entity(name = "Vehicle")
+public class Vehicle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "accountStatus")
-    private Boolean accountStatus;
+    @Column
+    private String plate;
 
     @Column
-    private int age;
+    private Boolean vehicleStatus;
+
+    @Column
+    private String brand;
+
+    @Column
+    private String color;
 }

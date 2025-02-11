@@ -1,7 +1,7 @@
-package com.Mindera.FirstJavaApi.controller;
+package com.Mindera.rac.controller;
 
-import com.Mindera.FirstJavaApi.entity.Account;
-import com.Mindera.FirstJavaApi.service.AccountService;
+import com.Mindera.rac.entity.Account;
+import com.Mindera.rac.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

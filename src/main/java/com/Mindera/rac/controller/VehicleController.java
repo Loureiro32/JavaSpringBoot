@@ -1,7 +1,7 @@
-package com.Mindera.FirstJavaApi.controller;
+package com.Mindera.rac.controller;
 
-import com.Mindera.FirstJavaApi.entity.Vehicle;
-import com.Mindera.FirstJavaApi.service.VehicleService;
+import com.Mindera.rac.entity.Vehicle;
+import com.Mindera.rac.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
