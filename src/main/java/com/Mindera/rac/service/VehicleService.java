@@ -27,5 +27,15 @@ public class VehicleService {
         this.vehcileRepository.save(vehicle);
     }
 
+    public Vehicle patchVehicleStatusTrue(Integer id, Boolean value) {
+        Vehicle vehicle = this.vehcileRepository.findById(id).orElseThrow(() -> new RuntimeException("Vehicle not found"));
+        vehicle.setVehicleStatus(value);
+        return this.vehcileRepository.save(vehicle);
+    }
 
+    public Vehicle pathVehicleStatusFalse(Integer id, Boolean value) {
+        Vehicle vehicle = this.vehcileRepository.findById(id).orElseThrow(() -> new RuntimeException("Vehicle Not Found"));
+        vehicle.setVehicleStatus(value);
+        return this.vehcileRepository.save(vehicle);
+    }
 }
