@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img src="https://media.istockphoto.com/id/1183092667/vector/api-application-program-interface.jpg?s=612x612&w=0&k=20&c=eA7B-YqUQC0Yp1_Qs3c9GMW-tDsDJgnFNvkHCDn2m9M=" alt="Project logo"></a>
+ <img src="FNvkHCDn2m9M=](https://swimlane.com/wp-content/uploads/2021-04-Common-API-Authentication-blog.png" alt="Project logo"></a>
 </p>
 <h3 align="center">Rent A CAR API</h3>
 
