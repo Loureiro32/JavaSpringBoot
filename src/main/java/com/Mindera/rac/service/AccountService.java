@@ -39,4 +39,16 @@ public class AccountService {
     public void deleteAccount(Integer id) {
         this.accountRepository.deleteById(id);
     }
+
+    public Account patchAccountTrue(Integer id, Boolean value) {
+        Account account = this.accountRepository.findById(id).orElseThrow(() -> new RuntimeException("Account not found"));
+        account.setAccountStatus(value);
+        return this.accountRepository.save(account);
+    }
+
+    public Account patchAccountFalse(Integer id, Boolean value) {
+        Account account = this.accountRepository.findById(id).orElseThrow(() -> new RuntimeException("Account not found"));
+        account.setAccountStatus(value);
+        return this.accountRepository.save(account);
+    }
 }
