@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img src="https://i.imgur.com/AZ2iWek.png" alt="Project logo"></a>
+ <img src="[https://i.imgur.com/AZ2iWek.png](https://chisellabs.com/glossary/wp-content/uploads/2021/06/What-is-an-API.png)" alt="Project logo"></a>
 </p>
 <h3 align="center">Rent A CAR API</h3>
 
