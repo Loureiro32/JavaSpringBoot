@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img src="https://i.imgur.com/AZ2iWek.png](https://swimlane.com/wp-content/uploads/2021-04-Common-API-Authentication-blog.png" alt="Project logo"></a>
+ <img src="https://i.imgur.com/AZ2iWek.png" alt="Project logo"></a>
 </p>
 <h3 align="center">Rent A CAR API</h3>
 
@@ -29,26 +29,25 @@
 
 ## 🧐 About <a name = "about"></a>
 
-This project is a RESTful API built with Java and Spring Boot, designed to manage product data. It implements CRUD
-operations for products and leverages MongoDB for data persistence. The API follows best practices for Spring Boot
-development and provides a scalable foundation for building enterprise applications.
+This project is a RESTful API built with Java and Spring Boot, designed to manage product data. It implements CRUD operations for products and leverages MongoDB for data persistence. The API follows best practices for Spring Boot development and provides a scalable foundation for building enterprise applications.
+
 
 ## ⛓️ Dependencies / Limitations <a name = "limitations"></a>
 
-- Spring Web(Build web, including RESTful, applications using Spring MVC. Uses Apache Tomcat as the default embedded
-  container.)
+- Spring Web(Build web, including RESTful, applications using Spring MVC. Uses Apache Tomcat as the default embedded container.)
 - MySQL Driver(MySQL JDBC driver.)
-- Sping Data JPA(Persist date in SQL stores with Java Persistence API using Spring Data and Hibernate.).
+- Sping Data JPA(Persist date in SQL stores with Java Persistence API using Spring Data and Hibernate.)
+
+
 
 ## 🏁 Getting Started <aname = "getting_started"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing
-purposes.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 Prerequisites
 
 Java 17 or higher
 Maven
-Mysql or other Sql you prefer
+Mysql or other Sql you prefer 
 Your favorite IDE (IntelliJ IDEA, Eclipse, etc.)
 
 Installing
