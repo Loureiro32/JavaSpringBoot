@@ -51,4 +51,22 @@ public class AccountService {
         account.setAccountStatus(value);
         return this.accountRepository.save(account);
     }
+
+    public Account updateAccountName(Integer id, Account account) {
+        Account account1 = this.accountRepository.findById(id).orElseThrow(() -> new RuntimeException("Account not found! Create One"));
+        account1.setName(account.getName());
+        return this.accountRepository.save(account1);
+    }
+
+    public Account updateAccount(Integer id, Account account) {
+        this.accountRepository.findById(id).orElseThrow(() -> new RuntimeException("Account not found! Create One"));
+        return this.accountRepository.save(account);
+    }
+
+    public List<String> getDisableAccountName() {
+        List<Account> disableAccountsNames = this.accountRepository.findByAccountStatusFalse();
+        List<String> result = new ArrayList<>();
+        disableAccountsNames.forEach(account -> result.add(account.getName()));
+        return result;
+    }
 }

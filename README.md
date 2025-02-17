@@ -14,7 +14,7 @@
 
 ---
 
-<p align="center"> A Spring Boot API for managing products with MongoDB integration.
+<p align="center"> A Spring Boot API for managing Accounts and Vehicles with MySQL integration.
     <br> 
 </p>
 

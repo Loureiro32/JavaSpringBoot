@@ -25,6 +25,11 @@ public class AccountController {
         return this.accountService.getDeactivatedAccounts();
     }
 
+    @GetMapping(path = "{disable}/names")
+    public List<String> getDisableAccountName() {
+        return this.accountService.getDisableAccountName();
+    }
+
     @PostMapping
     public void createAccount(@RequestBody Account account) {
         this.accountService.saveOrCreateAccount(account);
@@ -45,4 +50,17 @@ public class AccountController {
         accountService.patchAccountFalse(id, false);
         return ResponseEntity.ok().build();
     }
+
+    @PatchMapping(path = "{id}/name")
+    public ResponseEntity<Account> updateAccountName(@PathVariable Integer id, @RequestBody Account account) {
+        this.accountService.updateAccountName(id, account);
+        return ResponseEntity.ok().build();
+    }
+
+    @PatchMapping(path = "{id}/accountupdate")
+    public Account updateAccountDetails(@PathVariable Integer id, @RequestBody Account account) {
+        this.accountService.updateAccount(id, account);
+        return account;
+    }
+
 }
