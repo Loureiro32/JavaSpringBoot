@@ -29,13 +29,13 @@
 
 ## 🧐 About <a name = "about"></a>
 
-This project is a RESTful API built with Java and Spring Boot, designed to manage product data. It implements CRUD
+This project is a REST API built with Java and Spring Boot, designed to manage product data. It implements CRUD
 operations for products and leverages MongoDB for data persistence. The API follows best practices for Spring Boot
 development and provides a scalable foundation for building enterprise applications.
 
 ## ⛓️ Dependencies / Limitations <a name = "limitations"></a>
 
-- Spring Web(Build web, including RESTful, applications using Spring MVC. Uses Apache Tomcat as the default embedded
+- Spring Web(Build web, including REST, applications using Spring MVC. Uses Apache Tomcat as the default embedded
   container.)
 - MySQL Driver(MySQL JDBC driver.)
 - Sping Data JPA(Persist date in SQL stores with Java Persistence API using Spring Data and Hibernate.).
@@ -55,19 +55,19 @@ Installing
 
 1.Clone the repository
 
-- Copygit clone https://github.com/Loureiro32/JavaSpringBoot.git
+- Copy -> git clone https://github.com/Loureiro32/JavaSpringBoot.git
 
 2.Navigate to the project directory
 
-- Copycd JavaSpringBoot
+- Copy -> cd JavaSpringBoot
 
 3.Build the project
 
-- Copymvn clean install
+- Copy -> mvn clean install
 
 4.Run the application
 
-- Copymvn spring-boot:run
+- Copy -> mvn spring-boot:run
 
 The server will start on the default port 8080.
 
@@ -97,4 +97,4 @@ who participated in this project.
 
 ## 🎉 Acknowledgments <a name = "acknowledgments"></a>
 
-- Inspired by best practices in RESTful API design
+- Inspired by best practices in REST API design
