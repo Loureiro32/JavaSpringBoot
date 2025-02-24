@@ -27,4 +27,8 @@ public class Vehicle {
 
     @Column
     private String color;
+
+    @ManyToOne
+    @JoinColumn(name = "account_id", nullable = false)
+    private Account account;
 }

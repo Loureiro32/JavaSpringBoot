@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -24,4 +26,7 @@ public class Account {
 
     @Column
     private int age;
+
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    List<Vehicle> vehicleList;
 }
