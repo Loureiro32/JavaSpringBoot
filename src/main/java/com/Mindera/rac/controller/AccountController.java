@@ -2,8 +2,11 @@ package com.Mindera.rac.controller;
 
 import com.Mindera.rac.entity.Account;
 import com.Mindera.rac.service.AccountService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,8 +34,11 @@ public class AccountController {
     }
 
     @PostMapping
-    public void createAccount(@RequestBody Account account) {
-        this.accountService.saveOrCreateAccount(account);
+    public ResponseEntity<Account> createAccount(@Valid @RequestBody Account account, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return ResponseEntity.ok(this.accountService.saveOrCreateAccount(account));
     }
 
     @DeleteMapping(path = "{AccountID}")

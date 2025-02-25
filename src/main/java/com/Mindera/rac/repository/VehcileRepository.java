@@ -12,9 +12,9 @@ public interface VehcileRepository extends JpaRepository<Vehicle, Integer> {
 
     boolean existsByPlate(String plate);
 
-    void associateVehicleToAccount(Integer accountId, Vehicle vehicle);
-
-    List<Account> findDeactivatedAccountsWithActiveVehicles();
-
-    List<String> findActiveVehiclePlatesByDeactivatedAccounts();
+//    void associateVehicleToAccount(Integer accountId, Vehicle vehicle);
+//
+//    List<Account> findDeactivatedAccountsWithActiveVehicles();
+//
+//    List<String> findActiveVehiclePlatesByDeactivatedAccounts();
 }
