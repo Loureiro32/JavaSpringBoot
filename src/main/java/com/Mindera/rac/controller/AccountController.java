@@ -23,7 +23,7 @@ public class AccountController {
         return this.accountService.getAccounts();
     }
 
-    @GetMapping(path = "{values}")
+    @GetMapping(path = "{deactivated}")
     public List<Account> getDesableAccount() {
         return this.accountService.getDeactivatedAccounts();
     }
