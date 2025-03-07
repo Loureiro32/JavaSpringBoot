@@ -1,5 +1,6 @@
 package com.Mindera.rac.controller;
 
+import com.Mindera.rac.dto.AccountDto;
 import com.Mindera.rac.entity.Account;
 import com.Mindera.rac.service.AccountService;
 import jakarta.validation.Valid;
@@ -19,12 +20,12 @@ public class AccountController {
     AccountService accountService;
 
     @GetMapping
-    public List<Account> getAllAccount() {
+    public List<AccountDto> getAllAccount() {
         return this.accountService.getAccounts();
     }
 
     @GetMapping(path = "{deactivated}")
-    public List<Account> getDesableAccount() {
+    public List<AccountDto> getDesableAccount() {
         return this.accountService.getDeactivatedAccounts();
     }
 
@@ -34,7 +35,7 @@ public class AccountController {
     }
 
     @PostMapping
-    public ResponseEntity<Account> createAccount(@Valid @RequestBody Account account, BindingResult bindingResult) {
+    public ResponseEntity<AccountDto> createAccount(@Valid @RequestBody AccountDto account, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -58,15 +59,15 @@ public class AccountController {
     }
 
     @PatchMapping(path = "{id}/name")
-    public ResponseEntity<Account> updateAccountName(@PathVariable Integer id, @RequestBody Account account) {
-        this.accountService.updateAccountName(id, account);
+    public ResponseEntity<AccountDto> updateAccountName(@PathVariable Integer id, @RequestBody AccountDto accountDto) {
+        this.accountService.updateAccountName(id, accountDto);
         return ResponseEntity.ok().build();
     }
 
     @PatchMapping(path = "{id}/accountupdate")
-    public Account updateAccountDetails(@PathVariable Integer id, @RequestBody Account account) {
-        this.accountService.updateAccount(id, account);
-        return account;
+    public AccountDto updateAccountDetails(@PathVariable Integer id, @RequestBody AccountDto accountDto) {
+        this.accountService.updateAccount(id, accountDto);
+        return accountDto;
     }
 
 }

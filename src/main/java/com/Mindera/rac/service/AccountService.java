@@ -1,39 +1,42 @@
 package com.Mindera.rac.service;
 
 
+import com.Mindera.rac.dto.AccountDto;
 import com.Mindera.rac.entity.Account;
+import com.Mindera.rac.mapper.AccountMapper;
 import com.Mindera.rac.repository.AccountRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
+@AllArgsConstructor
 @Service
 public class AccountService {
 
-    @Autowired
-    AccountRepository accountRepository;
+    private final AccountRepository accountRepository;
 
 
-    public List<Account> getAccounts() {
-        List<Account> accounts = new ArrayList<>();
-        this.accountRepository.findAll().forEach(accounts::add);
-        return accounts;
+    public List<AccountDto> getAccounts() {
+        List<Account> accounts = new ArrayList<>(accountRepository.findAll());
+
+        return AccountMapper.accountMapper.accountsToAccountDtos(accounts);
     }
 
-    public List<Account> getDeactivatedAccounts() {
+    public List<AccountDto> getDeactivatedAccounts() {
         List<Account> disableAccounts = new ArrayList<>();
         this.accountRepository.findByAccountStatusFalse().forEach(disableAccounts::add);
-        return disableAccounts;
+        return AccountMapper.accountMapper.accountsToAccountDtos(disableAccounts);
     }
 
-    public Account saveOrCreateAccount(Account account) {
+    public AccountDto saveOrCreateAccount(AccountDto account) {
+        Account accountEntity = AccountMapper.accountMapper.accountDtoToAccount(account);
         if (this.accountRepository.existsByFirstNameAndLastName(account.getFirstName(), account.getLastName())) {
             throw new IllegalStateException("Account Already exist");
         }
-        this.accountRepository.save(account);
+        this.accountRepository.save(accountEntity);
         return account;
     }
 
@@ -53,16 +56,18 @@ public class AccountService {
         return this.accountRepository.save(account);
     }
 
-    public Account updateAccountName(Integer id, Account account) {
+    public Account updateAccountName(Integer id, AccountDto accountDto) {
         Account account1 = this.accountRepository.findById(id).orElseThrow(() -> new RuntimeException("Account not found! Create One"));
-        account1.setFirstName(account.getFirstName());
-        account1.setLastName(account.getLastName());
+        account1.setFirstName(accountDto.getFirstName());
+        account1.setLastName(accountDto.getLastName());
         return this.accountRepository.save(account1);
     }
 
-    public Account updateAccount(Integer id, Account account) {
+    public Integer updateAccount(Integer id, AccountDto accountDto) {
+        Account account = AccountMapper.accountMapper.accountDtoToAccount(accountDto);
         this.accountRepository.findById(id).orElseThrow(() -> new RuntimeException("Account not found! Create One"));
-        return this.accountRepository.save(account);
+        account.setId(id);
+        return this.accountRepository.save(account).getId();
     }
 
     public List<String> getDisableAccountName() {

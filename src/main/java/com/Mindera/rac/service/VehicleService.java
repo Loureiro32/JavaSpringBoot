@@ -4,18 +4,18 @@ import com.Mindera.rac.entity.Account;
 import com.Mindera.rac.entity.Vehicle;
 import com.Mindera.rac.repository.AccountRepository;
 import com.Mindera.rac.repository.VehcileRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
 @Service
 public class VehicleService {
 
-    @Autowired
-    VehcileRepository vehcileRepository;
-    AccountRepository accountRepository;
+    private final VehcileRepository vehcileRepository;
+    private final AccountRepository accountRepository;
 
     public List<Vehicle> getVehicles() {
         List<Vehicle> vehicles = new ArrayList<>();
