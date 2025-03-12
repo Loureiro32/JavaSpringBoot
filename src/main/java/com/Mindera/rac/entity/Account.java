@@ -26,6 +26,12 @@ public class Account {
     @Column(name = "lastname")
     private String lastName;
 
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "password")
+    private String password;
+
     @Column(name = "accountStatus")
     private Boolean accountStatus;
 
