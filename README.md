@@ -40,7 +40,7 @@ development and provides a scalable foundation for building enterprise applicati
 - MySQL Driver(MySQL JDBC driver.)
 - Sping Data JPA(Persist date in SQL stores with Java Persistence API using Spring Data and Hibernate.).
 
-## 🏁 Getting Started <aname = "getting_started"></a>
+## 🏁 Getting Started <a name = "getting_started"></a>
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing
 purposes.
@@ -71,7 +71,7 @@ Installing
 
 The server will start on the default port 8080.
 
-## 📡 API Endpoints <aname="api_endpoints"></a>
+## 📡 API Endpoints <a name="api_endpoints"></a>
 
 Some Examples Endpoints already exists in this API
 
